@@ -9,3 +9,5 @@ jobs:
           name: Test
           command: |
             gradle test
+      - store_test_results:
+          path: build/test-results
