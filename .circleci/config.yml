@@ -30,3 +30,9 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: jar-files
+workflows:
+  version: 2
+  two_job_flow:
+    jobs:
+      - test
+      - build
