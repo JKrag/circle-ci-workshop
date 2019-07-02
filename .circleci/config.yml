@@ -16,4 +16,5 @@ jobs:
           command: |
             gradle jar
       - store_artifacts:
-          path: build/lib
+          path: build/libs
+          prefix: jar-files
