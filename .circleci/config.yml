@@ -35,4 +35,6 @@ workflows:
   two_job_flow:
     jobs:
       - test
-      - build
+      - build:
+          requires:
+            - test
