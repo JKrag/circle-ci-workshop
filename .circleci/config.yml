@@ -22,3 +22,11 @@ jobs:
           name: publish jar
           path: build/libs
           destination: prefix
+workflows:
+  version: 2
+  do_stuff:
+    jobs:
+      - test
+      - package:
+          requires:
+            - test
