@@ -1,6 +1,6 @@
 version: 2.0
 jobs:
-  test:
+  build_and_test:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
@@ -18,7 +18,7 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: jar-files
-  build:
+  package_and_publish:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
@@ -32,9 +32,9 @@ jobs:
           destination: jar-files
 workflows:
   version: 2
-  two_job_flow:
+  awesome_pipeline:
     jobs:
-      - test
-      - build:
+      - build_and_test
+      - package_and_publish:
           requires:
-            - test
+            - build_and_test
